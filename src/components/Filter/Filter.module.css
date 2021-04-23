@@ -1,0 +1,27 @@
+.filterstyle {
+  margin: auto;
+  width: 550px;
+  display: flex;
+  background: #b9b7b7;
+  align-items: center;
+  padding: 12px;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0px 2px 1px -1px rgba(48, 47, 47, 0.2),
+    0px 1px 1px 0px rgba(46, 45, 45, 0.14),
+    0px 1px 3px 0px rgba(54, 53, 53, 0.12);
+}
+
+.inputstyle {
+  margin: auto;
+  display: flex;
+  width: 350px;
+  height: 15px;
+  align-items: center;
+
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0px 2px 1px -1px rgba(48, 47, 47, 0.2),
+    0px 1px 1px 0px rgba(46, 45, 45, 0.14),
+    0px 1px 3px 0px rgba(54, 53, 53, 0.12);
+}

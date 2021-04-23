@@ -1,0 +1,58 @@
+.TaskList {
+  width: 400px;
+  margin: auto;
+  padding-top: 10px;
+}
+
+.TaskList_item {
+  margin: auto;
+  display: flex;
+  background: #b9b7b7;
+  align-items: center;
+  padding: 12px;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0px 2px 1px -1px rgba(48, 47, 47, 0.2),
+    0px 1px 1px 0px rgba(46, 45, 45, 0.14),
+    0px 1px 3px 0px rgba(54, 53, 53, 0.12);
+}
+
+.TaskList_item + .TaskList_item {
+  margin-top: 12px;
+}
+
+.TaskList_item.completed {
+  background-color: green;
+}
+
+.TaskList_text {
+  flex: 0 0 65%;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 16px;
+  border-radius: 3px;
+}
+
+.TaskList_actions {
+  display: flex;
+  justify-content: center;
+}
+
+.TaskList_button {
+  width: 25px;
+  height: 25px;
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.buttonstyle {
+  margin-left: auto;
+}
+
+.TaskList_button::before {
+  content: "x";
+  color: #fff;
+  font-weight: 300;
+  font-family: Arial, sans-serif;
+}
