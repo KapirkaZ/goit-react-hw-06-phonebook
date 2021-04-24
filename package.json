@@ -1,9 +1,10 @@
 {
-  "name": "goit-react-hw-03-phonebook",
+  "name": "goit-react-hw-06-phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://KapirkaZ.github.io/goit-react-hw-03-phonebook",
+  "homepage": "https://KapirkaZ.github.io/goit-react-hw-06-phonebook",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
@@ -13,8 +14,11 @@
     "json-server": "^0.16.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.3",
     "react-scripts": "^4.0.3",
+    "redux": "^4.0.5",
     "uuid": "^8.3.2",
+    "uuidv4": "^6.2.7",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
@@ -44,6 +48,8 @@
     ]
   },
   "devDependencies": {
+    "@pnotify/core": "^5.2.0",
+    "@pnotify/mobile": "^5.2.0",
     "gh-pages": "^3.1.0"
   }
 }

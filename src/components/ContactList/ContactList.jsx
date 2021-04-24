@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./ContactList.module.css";
+import { connect } from "react-redux";
 
 const ContactList = ({ contacts, onRemoveContact }) => (
   <ul className={styles.TaskList}>
@@ -32,4 +33,15 @@ ContactList.propTypes = {
     })
   ),
 };
-export default ContactList;
+
+const mapStateToProps = (state) => {
+  const { items, filter } = state.contacts;
+  const visibleContacts = items.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
+  return {
+    contacts: visibleContacts,
+  };
+};
+
+export default connect(mapStateToProps)(ContactList);
