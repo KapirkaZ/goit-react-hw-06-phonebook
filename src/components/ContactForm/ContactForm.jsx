@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styles from "./ContactForm.module.css";
+import { connect } from "react-redux";
+import contactsActions from "../../redux/contacts/contactsActions";
 
-export default class ContactForm extends Component {
+class ContactForm extends Component {
   state = {
     name: "",
     number: "",
@@ -10,6 +12,7 @@ export default class ContactForm extends Component {
 
   handleChange = (e) => {
     const { name, value } = e.target;
+
     this.setState({
       [name]: value,
     });
@@ -17,11 +20,12 @@ export default class ContactForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
-    this.props.onAddContact({ ...this.state });
+    const { name, number } = this.state;
+    this.props.onAddContact(name, number);
 
     this.setState({ name: "", number: "" });
   };
+
   render() {
     return (
       <form className={styles.TaskEditor} onSubmit={this.handleSubmit}>
@@ -59,3 +63,9 @@ ContactForm.propTypes = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
 };
+
+const mapDispatchToProps = {
+  onAddContact: contactsActions.addContacts,
+};
+
+export default connect(null, mapDispatchToProps)(ContactForm);

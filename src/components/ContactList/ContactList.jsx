@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./ContactList.module.css";
 import { connect } from "react-redux";
+import contactsActions from "../../redux/contacts/contactsActions";
 
-const ContactList = ({ contacts, onRemoveContact }) => (
+const ContactList = ({ contacts, onRemove }) => (
   <ul className={styles.TaskList}>
     {contacts.map((contact) => (
       <li className={styles.TaskList_item} key={contact.id}>
@@ -14,7 +15,7 @@ const ContactList = ({ contacts, onRemoveContact }) => (
               className={styles.TaskList_button}
               type="button"
               name="delete"
-              onClick={() => onRemoveContact(contact.id)}
+              onClick={onRemove}
             ></button>
           </span>
         }
@@ -24,7 +25,7 @@ const ContactList = ({ contacts, onRemoveContact }) => (
 );
 
 ContactList.propTypes = {
-  onRemoveContact: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -44,4 +45,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ContactList);
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onRemove: () => dispatch(contactsActions.removeContacts(ownProps.id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
