@@ -15,7 +15,7 @@ const ContactList = ({ contacts, onRemove }) => (
               className={styles.TaskList_button}
               type="button"
               name="delete"
-              onClick={onRemove}
+              onClick={() => onRemove(contact.id)}
             ></button>
           </span>
         }
@@ -45,8 +45,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  onRemove: () => dispatch(contactsActions.removeContacts(ownProps.id)),
+const mapDispatchToProps = (dispatch) => ({
+  onRemove: (id) => dispatch(contactsActions.removeContacts(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
